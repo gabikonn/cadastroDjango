@@ -15,9 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from cadastroapp.views import home
+from cadastroapp.views import home, listagem, novo_cadastro, update, delete
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home/', home),
+    path('', listagem, name='url_listagem'),
+    path('cadastrar/', novo_cadastro, name='url_cadastrar'),
+    path('update/<int:pk>/', update, name='url_update'),
+    path('delete/<int:pk>/', delete, name='url_delete'),
 ]
